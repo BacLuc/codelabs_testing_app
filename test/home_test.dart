@@ -29,5 +29,51 @@ void main() {
 
       expect(find.text('Item 0'), findsNothing);
     });
+
+    testWidgets('No items are initially favorites', (tester) async {
+      await tester.pumpWidget(createHomeScreen());
+
+      expect(find.byIcon(Icons.favorite), findsNothing);
+    });
+
+    testWidgets('toggle favorites on', (tester) async {
+      await tester.pumpWidget(createHomeScreen());
+
+      const itemNr = 3;
+      await tester.tap(find.byIcon(Icons.favorite_border).at(itemNr));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Added to favorites.'), findsOneWidget);
+      expect(
+          find.descendant(
+              of: find.byKey(Key('icon_$itemNr')),
+              matching: find.byIcon(Icons.favorite)),
+          findsOneWidget);
+
+      await tester.pumpAndSettle(Duration(seconds: 1));
+
+      expect(find.text('Added to favorites.'), findsNothing);
+    });
+
+    testWidgets('toggle favorites off', (tester) async {
+      await tester.pumpWidget(createHomeScreen());
+      const itemNr = 3;
+      await tester.tap(find.byIcon(Icons.favorite_border).at(itemNr));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.favorite).first);
+      await tester.pumpAndSettle(Duration(milliseconds: 500));
+
+      expect(find.text('Removed from favorites.'), findsOneWidget);
+      expect(
+          find.descendant(
+              of: find.byKey(Key('icon_$itemNr')),
+              matching: find.byIcon(Icons.favorite_border)),
+          findsOneWidget);
+
+      await tester.pumpAndSettle(Duration(seconds: 1));
+
+      expect(find.text('Removed from favorites.'), findsNothing);
+    });
   });
 }
