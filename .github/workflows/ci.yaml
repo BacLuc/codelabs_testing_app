@@ -1,0 +1,80 @@
+name: CI
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+  check-pubspec-lock:
+    name: check pubspec lock
+    runs-on: ubuntu-latest
+    container:
+      image: cirrusci/flutter:3.3.6
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          cp pubspec.yaml pubspec.yaml.bak
+          flutter pub get
+          changed_lines=$(diff pubspec.yaml pubspec.yaml.bak | wc -l)
+          if [ $changed_lines -gt 0 ]; then
+            exit 1;
+          fi
+
+  format:
+    name: check format
+    runs-on: ubuntu-latest
+    container:
+      image: cirrusci/flutter:3.3.6
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          flutter format . --set-exit-if-changed -n
+
+  analyze:
+    name: flutter analyze
+    runs-on: ubuntu-latest
+    container:
+      image: cirrusci/flutter:3.3.6
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          flutter analyze
+
+  unit-and-widget-test:
+    name: run unit and widget tests
+    runs-on: ubuntu-latest
+    container:
+      image: cirrusci/flutter:3.3.6
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          flutter test
+
+  integration-test:
+    name: run integration test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      # build API (using cache; provide image to docker-compose)
+      - name: Build docker image (integration test)
+        uses: docker/build-push-action@v3
+        with:
+          file: docker/Dockerfile
+          context: './docker'
+          push: false
+          load: true
+          builder: ${{ steps.buildx.outputs.name }}
+          tags: bacluc/flutter-linux-integration-test
+          cache-from: type=gha,scope=linux-integration-test
+          cache-to: type=gha,scope=linux-integration-test,mode=max
+
+      - run: docker-compose up

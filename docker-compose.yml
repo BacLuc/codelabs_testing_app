@@ -1,0 +1,9 @@
+services:
+  flutter-integration-test:
+    build:
+      context: docker
+      cache_from:
+        - bacluc/flutter-linux-integration-test
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
