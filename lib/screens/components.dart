@@ -3,6 +3,7 @@ import 'package:testing_app/screens/favoriteshome.dart';
 import 'package:testing_app/screens/text_edit.dart';
 
 const favoritesKey = Key("favorites");
+final textEditKey = UniqueKey();
 
 class ComponentsPage extends StatelessWidget {
   static String routeName = '/';
@@ -25,6 +26,7 @@ class ComponentsPage extends StatelessWidget {
             ),
             ComponentListItem(
               child: TextButton(
+                  key: textEditKey,
                   onPressed: () {
                     Navigator.pushNamed(context, TextEdit.routeName);
                   },
