@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
+import 'package:testing_app/screens/components.dart';
 import 'package:testing_app/screens/favorites.dart';
 import 'package:testing_app/screens/home.dart';
 
@@ -22,6 +23,7 @@ class TestingApp extends StatelessWidget {
         routes: {
           HomePage.routeName: (context) => HomePage(),
           FavoritesPage.routeName: (context) => FavoritesPage(),
+          ComponentsPage.routeName: (context) => ComponentsPage(),
         },
         initialRoute: HomePage.routeName,
       ),
