@@ -12,12 +12,23 @@ class FavoritesPage extends StatelessWidget {
         title: Text('Favorites'),
       ),
       body: Consumer<Favorites>(
-        builder: (context, value, child) => ListView.builder(
-          itemCount: value.items.length,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          itemBuilder: (context, index) => FavoriteItemTile(value.items[index]),
-        ),
+        builder: (context, value, child) => FavoritesList(items: value.items),
       ),
+    );
+  }
+}
+
+class FavoritesList extends StatelessWidget {
+  final List<int> items;
+
+  const FavoritesList({Key? key, required this.items}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: items.length,
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      itemBuilder: (context, index) => FavoriteItemTile(items[index]),
     );
   }
 }
