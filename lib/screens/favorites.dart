@@ -25,6 +25,9 @@ class FavoritesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (items.isEmpty) {
+      return Text('No favorites');
+    }
     return ListView.builder(
       itemCount: items.length,
       padding: const EdgeInsets.symmetric(vertical: 16),
