@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testing_app/screens/favoriteshome.dart';
+import 'package:testing_app/screens/text_edit.dart';
 
 const favoritesKey = Key("favorites");
 
@@ -21,6 +22,13 @@ class ComponentsPage extends StatelessWidget {
                     Navigator.pushNamed(context, FavoritesHomePage.routeName);
                   },
                   child: Text('Favorites')),
+            ),
+            ComponentListItem(
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, TextEdit.routeName);
+                  },
+                  child: Text('Text edit')),
             ),
           ],
         ));

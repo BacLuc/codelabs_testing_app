@@ -4,6 +4,7 @@ import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/components.dart';
 import 'package:testing_app/screens/favorites.dart';
 import 'package:testing_app/screens/favoriteshome.dart';
+import 'package:testing_app/screens/text_edit.dart';
 
 void main() {
   runApp(TestingApp());
@@ -24,6 +25,7 @@ class TestingApp extends StatelessWidget {
           ComponentsPage.routeName: (context) => ComponentsPage(),
           FavoritesHomePage.routeName: (context) => FavoritesHomePage(),
           FavoritesPage.routeName: (context) => FavoritesPage(),
+          TextEdit.routeName: (context) => TextEdit(),
         },
         initialRoute: ComponentsPage.routeName,
       ),
