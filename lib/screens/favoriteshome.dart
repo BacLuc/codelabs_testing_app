@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
-import 'package:testing_app/screens/components.dart';
 import 'package:testing_app/screens/favorites.dart';
 
-class HomePage extends StatelessWidget {
-  static String routeName = '/';
+class FavoritesHomePage extends StatelessWidget {
+  static String routeName = '/favoriteshome';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Testing Sample'),
+        title: Text('Favorites Home'),
         actions: <Widget>[
-          TextButton(
-              style: TextButton.styleFrom(foregroundColor: Colors.white),
-              onPressed: () {
-                Navigator.pushNamed(context, ComponentsPage.routeName);
-              },
-              child: Text('Components')),
           TextButton.icon(
             style: TextButton.styleFrom(foregroundColor: Colors.white),
             onPressed: () {

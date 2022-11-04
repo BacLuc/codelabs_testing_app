@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/components.dart';
 import 'package:testing_app/screens/favorites.dart';
-import 'package:testing_app/screens/home.dart';
+import 'package:testing_app/screens/favoriteshome.dart';
 
 void main() {
   runApp(TestingApp());
@@ -21,11 +21,11 @@ class TestingApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         routes: {
-          HomePage.routeName: (context) => HomePage(),
-          FavoritesPage.routeName: (context) => FavoritesPage(),
           ComponentsPage.routeName: (context) => ComponentsPage(),
+          FavoritesHomePage.routeName: (context) => FavoritesHomePage(),
+          FavoritesPage.routeName: (context) => FavoritesPage(),
         },
-        initialRoute: HomePage.routeName,
+        initialRoute: ComponentsPage.routeName,
       ),
     );
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:testing_app/screens/favoriteshome.dart';
+
+const favoritesKey = Key("favorites");
 
 class ComponentsPage extends StatelessWidget {
-  static String routeName = '/components';
+  static String routeName = '/';
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +14,25 @@ class ComponentsPage extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: Text('first'),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: Text('second'),
+            ComponentListItem(
+              child: TextButton(
+                  key: favoritesKey,
+                  onPressed: () {
+                    Navigator.pushNamed(context, FavoritesHomePage.routeName);
+                  },
+                  child: Text('Favorites')),
             ),
           ],
         ));
+  }
+}
+
+class ComponentListItem extends StatelessWidget {
+  final Widget child;
+  const ComponentListItem({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(10), child: child);
   }
 }
