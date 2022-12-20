@@ -9,7 +9,7 @@ jobs:
     name: check pubspec lock
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.9
+      image: cirrusci/flutter:3.3.10
     steps:
       - uses: actions/checkout@v3
 
@@ -25,7 +25,7 @@ jobs:
     name: check format
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.9
+      image: cirrusci/flutter:3.3.10
     steps:
       - uses: actions/checkout@v3
 
@@ -36,7 +36,7 @@ jobs:
     name: flutter analyze
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.9
+      image: cirrusci/flutter:3.3.10
     steps:
       - uses: actions/checkout@v3
 
@@ -47,7 +47,7 @@ jobs:
     name: run unit and widget tests
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.9
+      image: cirrusci/flutter:3.3.10
     steps:
       - uses: actions/checkout@v3
 
