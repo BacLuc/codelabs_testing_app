@@ -66,7 +66,7 @@ jobs:
 
       # build API (using cache; provide image to docker-compose)
       - name: Build docker image (integration test)
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           file: docker/Dockerfile
           context: './docker'
