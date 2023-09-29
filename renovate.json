@@ -5,7 +5,7 @@
   ],
   "force": {
     "constraints": {
-      "flutter": "3.15.0-0.0.pre"
+      "flutter": "3.16.0-0.0.pre"
     }
   },
   "automergeType": "branch",
