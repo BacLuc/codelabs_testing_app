@@ -1,4 +1,4 @@
-FROM cirrusci/flutter:3.3.10@sha256:6252a6c1f7f24a5d74114630190dceaf419c476d9ca177c4d91ef916628d9e7f
+FROM cirrusci/flutter:3.7.7@sha256:32e7d16c7e1458d3135e945ceec82c5d43bfda289526f850711f3908fb927502
 
 RUN sudo apt update && sudo apt install -y --no-install-recommends \
     cmake \
