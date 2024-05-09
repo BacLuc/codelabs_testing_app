@@ -11,7 +11,7 @@ jobs:
     container:
       image: cirrusci/flutter:3.3.10
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - run: |
           cp pubspec.yaml pubspec.yaml.bak
@@ -27,7 +27,7 @@ jobs:
     container:
       image: cirrusci/flutter:3.3.10
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - run: |
           flutter format . --set-exit-if-changed -n
@@ -38,7 +38,7 @@ jobs:
     container:
       image: cirrusci/flutter:3.3.10
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - run: |
           flutter analyze
@@ -49,7 +49,7 @@ jobs:
     container:
       image: cirrusci/flutter:3.3.10
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - run: |
           flutter test
@@ -58,7 +58,7 @@ jobs:
     name: run integration test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - name: Set up Docker Buildx
         id: buildx
