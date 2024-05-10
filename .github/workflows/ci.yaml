@@ -9,7 +9,7 @@ jobs:
     name: check pubspec lock
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.10
+      image: cirrusci/flutter:3.7.7@sha256:32e7d16c7e1458d3135e945ceec82c5d43bfda289526f850711f3908fb927502
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
@@ -25,7 +25,7 @@ jobs:
     name: check format
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.10
+      image: cirrusci/flutter:3.7.7@sha256:32e7d16c7e1458d3135e945ceec82c5d43bfda289526f850711f3908fb927502
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
@@ -36,7 +36,7 @@ jobs:
     name: flutter analyze
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.10
+      image: cirrusci/flutter:3.7.7@sha256:32e7d16c7e1458d3135e945ceec82c5d43bfda289526f850711f3908fb927502
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
@@ -47,7 +47,7 @@ jobs:
     name: run unit and widget tests
     runs-on: ubuntu-latest
     container:
-      image: cirrusci/flutter:3.3.10
+      image: cirrusci/flutter:3.7.7@sha256:32e7d16c7e1458d3135e945ceec82c5d43bfda289526f850711f3908fb927502
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
